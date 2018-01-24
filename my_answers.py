@@ -64,9 +64,9 @@ def window_transform_text(text, window_size, step_size):
     inputs = []
     outputs = []
 
-    for i in range(0, len(series) - window_size, step_size):
-        Xi = series[i:i+window_size]
-        yi = series[i+window_size]
+    for i in range(0, len(text) - window_size, step_size):
+        Xi = text[i:i+window_size]
+        yi = text[i+window_size]
         inputs.append(Xi)
         outputs.append(yi)
 
