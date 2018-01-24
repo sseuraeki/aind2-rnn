@@ -42,10 +42,14 @@ def cleaned_text(text):
     alphabets = 'abcdefghijklmnopqrstuvwxyz'
     alphabets = [char for char in alphabets]
 
-    # remove junk symbols first
+    # lower case first
+    text = text.lower()
+
+    # remove junk symbols next
     text.replace('\n', '')
     text.replace('\r', '')
 
+    # now iteration - this will take long...
     for char in text:
         if char in punctuation or char in alphabets:
             pass
