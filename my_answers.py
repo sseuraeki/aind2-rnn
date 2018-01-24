@@ -42,15 +42,13 @@ def cleaned_text(text):
     alphabets = 'abcdefghijklmnopqrstuvwxyz'
     alphabets = [char for char in alphabets]
 
-    # we shouldn't replace spaces, so add that exception
-    alphabets.append(' ')
-
     # lower case first
     text = text.lower()
 
-    # remove junk symbols next
-    text = text.replace('\n', '')
-    text = text.replace('\r', '')
+    # replace junk symbols with an empty space
+    # without the empty space, words can stick together
+    text = text.replace('\n', ' ')
+    text = text.replace('\r', ' ')
 
     # get unique characters list
     chars = list(set(text))
@@ -58,7 +56,7 @@ def cleaned_text(text):
     # now iteration
     for char in chars:
         if not (char in punctuation or char in alphabets):
-            text = text.replace(char, '')
+            text = text.replace(char, ' ')
 
     return text
 
