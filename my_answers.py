@@ -46,15 +46,16 @@ def cleaned_text(text):
     text = text.lower()
 
     # remove junk symbols next
-    text.replace('\n', '')
-    text.replace('\r', '')
+    text = text.replace('\n', '')
+    text = text.replace('\r', '')
 
-    # now iteration - this will take long...
-    for char in text:
-        if char in punctuation or char in alphabets:
-            pass
-        else:
-            text.replace(char, '')
+    # get unique characters list
+    chars = list(set(text))
+
+    # now iteration
+    for char in chars:
+        if not (char in punctuation or char in alphabets):
+            text = text.replace(char, '')
 
     return text
 
