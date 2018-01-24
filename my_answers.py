@@ -64,6 +64,12 @@ def window_transform_text(text, window_size, step_size):
     inputs = []
     outputs = []
 
+    for i in range(0, len(series) - window_size, step_size):
+        Xi = series[i:i+window_size]
+        yi = series[i+window_size]
+        inputs.append(Xi)
+        outputs.append(yi)
+
     return inputs,outputs
 
 # TODO build the required RNN model: 
