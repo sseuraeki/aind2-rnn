@@ -42,6 +42,9 @@ def cleaned_text(text):
     alphabets = 'abcdefghijklmnopqrstuvwxyz'
     alphabets = [char for char in alphabets]
 
+    # we shouldn't replace spaces, so add that exception
+    alphabets.append(' ')
+
     # lower case first
     text = text.lower()
 
